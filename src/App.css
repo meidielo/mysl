@@ -28,6 +28,22 @@
   color: #61dafb;
 }
 
+.promo-banner-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.promo-banner-track img {
+  flex: 0 0 auto;
+  width: min(800px, 85vw);
+  max-height: 400px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

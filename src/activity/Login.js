@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CookiesProvider, withCookies } from 'react-cookies'
+import { saveCookie } from '../cookieStore'
 
 class Login extends Component {
     constructor(props) {
@@ -31,15 +31,15 @@ class Login extends Component {
         else if (this.state.number.length !== 12) {
             alert('The phone number should be 12 digits');
         }
-        else if (this.state.number.match(/^0878/) !== "0878") {
+        else if (!this.state.number.startsWith('0878')) {
             alert('Your number should start with 0878');
         }
-        else if (this.state.password < 5 || this.state.password > 25) {
+        else if (this.state.password.length < 5 || this.state.password.length > 25) {
             alert('Password length should be 5-25');
         }
         else {
-            const { cookies } = this.props;
-            cookies.set('number', this.state.number, { path: '/' });
+            saveCookie('number', this.state.number, { path: '/' });
+            window.location.reload();
         }
         event.preventDefault();
     }
@@ -58,7 +58,7 @@ class Login extends Component {
                         <input type="tel" className="form_login" placeholder="SL Number" value={this.state.number} onChange={this.handleNumberChange} />
                         <label>Password</label>
                         <input type="password" className="form_login" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange} />
-                        <input type="button" id="login" className="tombol_login" defaultValue="LOGIN" onclick="validate()" />
+                        <input type="button" id="login" className="tombol_login" defaultValue="LOGIN" onClick={this.handleSubmit} />
                     </form>
                 </div>
                 <footer>

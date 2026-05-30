@@ -23,11 +23,11 @@ class Promo extends Component {
                         <p>Our New 5G Technology will have some key features such as :<br /><br /> <b>Faster Speeds </b> - The new 5G is set to be much faster than previous generation networks it can like 100 times faster than existing 4G networks. To get more specific, 5G may offer speeds as fast as 10Gb/s. This would mean the ability to download a full HD movie in under 10 seconds on a 5G network, compared to 10 minutes on 4G. Some estimates see 5G being even faster than that.<br /><br /><b>Lower Latency</b> - The 5G will also have much lower latency. So that there is much less delay or lag when we’re using our phones and other devices. With 4G networks, latency is typically around 40-50 milliseconds. With 5G it should be 1 millisecond or less, which is undetectable to the user.<br /><br /><b>Greater Capacity</b> - 5G will have greater capacity, meaning the networks will be able to cope better with many high-demand applications all at once - from connected cars and IoT (Internet of Things) devices to virtual reality experiences and simultaneous HD video streaming.</p><br /><br />
                     </div>
                     <div className="banner">
-                        <marquee behavior="scroll" direction="left" scrollamount={12} onmouseover="this.stop()" onmouseout="this.start()">
-                            <img style={{ transition: 'transform .2s' }} src="banner1.jpg" alt="banner1.jpg" width="800   px" height="400px" />
-                            <img style={{ transition: 'transform .2s' }} src="banner2.png" alt="banner2.jpg" width="620px" height="400px" />
-                            <img style={{ transition: 'transform .2s' }} src="banner3.jpg" alt="banner3.jpg" width="620px" height="400px" />
-                        </marquee>
+                        <div className="promo-banner-track" aria-label="Current promotional banners">
+                            <img src="banner1.jpg" alt="5G promotion banner 1" />
+                            <img src="banner2.png" alt="5G promotion banner 2" />
+                            <img src="banner3.jpg" alt="5G promotion banner 3" />
+                        </div>
                     </div>
                 </div>
                 <footer>

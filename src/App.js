@@ -6,26 +6,23 @@ import Login from './activity/Login'
 import Package from './activity/Packages'
 import Promo from './activity/Promo'
 import Feedback from './activity/Feedback'
-import { CookiesProvider, withCookies } from 'react-cookies';
+import { loadCookie } from './cookieStore';
 
 class App extends Component {
 
   render() {
-    const { cookies } = this.props;
-    let num = cookies.get('num');
+    const number = loadCookie('number');
 
-    if(num){
+    if(number){
       return (
-        <CookiesProvider>
-          <BrowserRouter>
-            <div className="App">
-              <Route exact path="/" component={Home} />
-              <Route path="/packages" component={Package} />
-              <Route path="/promo" component={Promo} />
-              <Route path="/feedback" component={Feedback} />
-            </div>
-          </BrowserRouter >
-        </CookiesProvider>
+        <BrowserRouter>
+          <div className="App">
+            <Route exact path="/" component={Home} />
+            <Route path="/packages" component={Package} />
+            <Route path="/promo" component={Promo} />
+            <Route path="/feedback" component={Feedback} />
+          </div>
+        </BrowserRouter >
       );
     }
     else{
