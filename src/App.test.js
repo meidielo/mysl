@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders login screen before a session cookie exists', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(getByText('SL Number')).toBeInTheDocument();
+  expect(getByText('Password')).toBeInTheDocument();
 });
